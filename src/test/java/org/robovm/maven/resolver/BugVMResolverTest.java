@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2014 RoboVM AB
+ * Copyright (C) 2014 BugVM AB
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.robovm.maven.resolver;
+package com.bugvm.maven.resolver;
 
 import static org.junit.Assert.*;
 
@@ -24,27 +24,27 @@ import org.junit.Before;
 import org.junit.Test;
 
 /**
- * Tests {@link RoboVMResolver}.
+ * Tests {@link BugVMResolver}.
  */
-public class RoboVMResolverTest {
+public class BugVMResolverTest {
 
     File m2Repo = new File(System.getProperty("user.home"), ".m2/repository");
-    File distAlpha2Dir = new File(m2Repo, "org/robovm/robovm-dist/1.0.0-alpha-02/unpacked/robovm-1.0.0-alpha-02");
-    
+    File distAlpha2Dir = new File(m2Repo, "com/bugvm/bugvm-dist/1.0.9/unpacked/bugvm-1.0.9");
+
     @Before
     public void setup() throws Exception {
         if (distAlpha2Dir.getParentFile().exists()) {
             FileUtils.deleteDirectory(distAlpha2Dir.getParentFile());
         }
     }
-    
+
     @Test
-    public void testResolveAndUnpackRoboVMDistArtifact() throws Exception {
-        RoboVMResolver resolver = new RoboVMResolver();
-        File dir = resolver.resolveAndUnpackRoboVMDistArtifact("1.0.0-alpha-02");
+    public void testResolveAndUnpackBugVMDistArtifact() throws Exception {
+        BugVMResolver resolver = new BugVMResolver();
+        File dir = resolver.resolveAndUnpackBugVMDistArtifact("1.0.9");
         assertEquals(distAlpha2Dir, dir);
         assertTrue(new File(dir, "bin/ios-sim").canExecute());
-        assertEquals(1411637293L, new File(dir, "lib/robovm-rt.jar").lastModified() / 1000L);
+        // assertEquals(1411637293L, new File(dir, "lib/bugvm-rt.jar").lastModified() / 1000L);
     }
 
 }

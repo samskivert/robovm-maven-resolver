@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2014 RoboVM AB.
+ * Copyright (C) 2014 BugVM AB.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package org.robovm.maven.resolver;
+package com.bugvm.maven.resolver;
 
 public class GenericLogger implements Logger {
 

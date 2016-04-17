@@ -12,29 +12,29 @@
 
   <properties>
     <version.shrinkwrap.resolvers>2.2.0-alpha-2</version.shrinkwrap.resolvers>
-    <robovm.version>${project.version}</robovm.version>
+    <bugvm.version>1.0.9</bugvm.version>
   </properties>
 
-  <groupId>org.robovm</groupId>
-  <artifactId>robovm-maven-resolver</artifactId>
-  <version>1.14.1-SNAPSHOT</version>
+  <groupId>com.bugvm</groupId>
+  <artifactId>bugvm-maven-resolver</artifactId>
+  <version>1.0.10-SNAPSHOT</version>
   <packaging>jar</packaging>
 
-  <url>https://github.com/robovm/robovm-maven-resolver</url>
+  <url>https://github.com/bugvm/bugvm-maven-resolver</url>
   <description>
     Maven resolver
   </description>
-  <inceptionYear>2014</inceptionYear>
+  <inceptionYear>2015</inceptionYear>
 
   <organization>
-    <name>RoboVM AB</name>
-    <url>http://www.robovm.com</url>
+    <name>BugVM AB</name>
+    <url>http://www.bugvm.com</url>
   </organization>
 
   <mailingLists>
     <mailingList>
-      <name>RoboVM Discussion</name>
-      <archive>https://groups.google.com/forum/#!forum/robovm</archive>
+      <name>BugVM Discussion</name>
+      <archive>https://groups.google.com/forum/#!forum/bugvm</archive>
     </mailingList>
   </mailingLists>
 
@@ -47,14 +47,14 @@
   </licenses>
 
   <scm>
-    <connection>scm:git:git://github.com/robovm/robovm-maven-resolver.git</connection>
-    <developerConnection>scm:git:git@github.com:robovm/robovm-maven-resolver.git</developerConnection>
-    <url>https://github.com/robovm/robovm-maven-resolver.git</url>
+    <connection>scm:git:git://github.com/bugvm/bugvm-maven-resolver.git</connection>
+    <developerConnection>scm:git:git@github.com:bugvm/bugvm-maven-resolver.git</developerConnection>
+    <url>https://github.com/bugvm/bugvm-maven-resolver.git</url>
   </scm>
 
   <issueManagement>
     <system>GitHub</system>
-    <url>https://github.com/robovm/robovm-maven-resolver/issues</url>
+    <url>https://github.com/bugvm/bugvm-maven-resolver/issues</url>
   </issueManagement>
 
   <dependencies>

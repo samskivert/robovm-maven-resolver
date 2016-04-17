@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2014 RoboVM AB.
+ * Copyright (C) 2014 BugVM AB.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package org.robovm.maven.resolver;
+package com.bugvm.maven.resolver;
 
 import java.io.File;
 import java.io.IOException;
@@ -24,12 +24,12 @@ import org.jboss.shrinkwrap.resolver.api.NoResolvedResultException;
 import org.jboss.shrinkwrap.resolver.api.maven.Maven;
 import org.jboss.shrinkwrap.resolver.api.maven.MavenResolvedArtifact;
 
-public class RoboVMResolver {
+public class BugVMResolver {
 
-    private static String ROBOVM_DIST = "org.robovm:robovm-dist:tar.gz:nocompiler";
+    private static String BUGVM_DIST = "com.bugvm:bugvm-dist:tar.gz";
 
     private Logger logger = new GenericLogger();
-    
+
     public void setLogger(Logger logger) {
         this.logger = logger;
     }
@@ -41,8 +41,8 @@ public class RoboVMResolver {
         } catch (NoResolvedResultException nre) {
             return Maven
                     .configureResolver()
-                    .withRemoteRepo("Sonatype Nexus Snapshots",
-                            "https://oss.sonatype.org/content/repositories/snapshots/", "default")
+                    // .withRemoteRepo("Sonatype Nexus Snapshots",
+                    //         "https://oss.sonatype.org/content/repositories/snapshots/", "default")
                     .resolve(artifact).withoutTransitivity().asSingleResolvedArtifact();
         }
     }
@@ -54,18 +54,18 @@ public class RoboVMResolver {
         } catch (NoResolvedResultException nre) {
             return Maven
                     .configureResolver()
-                    .withRemoteRepo("Sonatype Nexus Snapshots",
-                            "https://oss.sonatype.org/content/repositories/snapshots/", "default")
+                    // .withRemoteRepo("Sonatype Nexus Snapshots",
+                    //         "https://oss.sonatype.org/content/repositories/snapshots/", "default")
                     .resolve(artifact).withTransitivity().asResolvedArtifact();
         }
     }
 
-    public MavenResolvedArtifact resolveRoboVMDistArtifact(String version) {
-        return resolveArtifact(ROBOVM_DIST + ":" + version);
+    public MavenResolvedArtifact resolveBugVMDistArtifact(String version) {
+        return resolveArtifact(BUGVM_DIST + ":" + version);
     }
 
-    public File resolveAndUnpackRoboVMDistArtifact(String version) throws IOException {
-        MavenResolvedArtifact distTarArtifact = resolveRoboVMDistArtifact(version);
+    public File resolveAndUnpackBugVMDistArtifact(String version) throws IOException {
+        MavenResolvedArtifact distTarArtifact = resolveBugVMDistArtifact(version);
         File distTarFile = distTarArtifact.asFile();
         File unpackBaseDir = new File(distTarFile.getParent(), "unpacked");
         if (unpackBaseDir.exists() && distTarArtifact.isSnapshotVersion()) {
@@ -73,10 +73,10 @@ public class RoboVMResolver {
             FileUtils.deleteDirectory(unpackBaseDir);
         }
         unpack(distTarFile, unpackBaseDir);
-        File unpackedDir = new File(unpackBaseDir, "robovm-" + version);
+        File unpackedDir = new File(unpackBaseDir, "bugvm-" + version);
         return unpackedDir;
     }
-    
+
     private Logger getLog() {
         return logger;
     }
